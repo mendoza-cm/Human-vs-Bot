@@ -1,28 +1,48 @@
 # Human-vs-Bot
 
-<strong>The files listed under Human-vs-Bot</strong>
+This repository explores the classification of human vs. bot click behavior using simulated data and machine learning models.
 
-<ul>
-  <li>Simulating Data</li>
-  <li>Logistic Regression Model</li>
-  <li>Other Machine Learning Model</li>
-</ul>
+## Overview
 
-each have a link that fully explain the rational and results for their creation. Here we attempt to review the R files associated with the Human-vs-Bot repository.
+This project includes:
+- Simulated click behavior data
+- A logistic regression model
+- Other machine learning models (in progress)
 
-## Simulating Data
-There are two files associated with this:
-<ul> 
-  <li>helperFunctions_simulatedCases.R</li>
-  <li>simulatedData_andPrep.R</li>
-</ul>
+Each linked HTML page provides a full explanation of the rationale, methods, and results behind the associated R scripts. Below is a brief overview of the current R code.
 
-## Logistic Regression
-There is one file associated with this:
-<ul> 
-  <li>logistic_regression.R</li>
-</ul>
-The R file does not only include the code for model development, but it also tests the model's performance.
+---
 
-## Other Machine Learing Models
-There are currently no files associated with the two ML algorithms described in the link; R code and anaysis is still pending.
+## 📊 Simulating Data
+
+There are two R scripts related to data simulation:
+- `helperFunctions_simulatedCases.R` — Utility functions for simulating human/bot behavior.
+- `simulatedData_andPrep.R` — Generates the dataset and prepares it for modeling.
+
+---
+
+## 🔍 Logistic Regression
+
+- `logistic_regression.R` — Contains model building, performance evaluation, and visualization of results.
+
+This script goes beyond model fitting and includes analysis of classification metrics and ROC curves.
+
+---
+
+## 🤖 Other Machine Learning Models
+
+While the HTML write-up outlines Support Vector Machines (SVM) and Random Forests (RF), the corresponding R code is still under development and will be added soon.
+
+---
+
+## 📌 Table of Contents (Optional)
+- [Simulating Data](#-simulating-data)
+- [Logistic Regression](#-logistic-regression)
+- [Other Machine Learning Models](#-other-machine-learning-models)
+
+## 🧪 Requirements (Optional)
+- R (≥ 4.0)
+- `ggplot2`, `dplyr`, `pROC`, `e1071`, `randomForest`, etc.
+
+## 📄 License (Optional)
+MIT License — see `LICENSE` file for details.
