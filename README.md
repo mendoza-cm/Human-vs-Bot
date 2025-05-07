@@ -23,3 +23,6 @@ There is one file associated with this:
   <li>logistic_regression.R</li>
 </ul>
 The R file does not only include the code for model development, but it also tests the model's performance.
+
+## Other Machine Learing Models
+There are currently no files associated with the two ML algorithms described in the link; R code and anaysis is still pending.
