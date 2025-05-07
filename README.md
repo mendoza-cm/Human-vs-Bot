@@ -44,5 +44,6 @@ While the HTML write-up outlines Support Vector Machines (SVM) and Random Forest
 - R (≥ 4.0)
 - `ggplot2`, `dplyr`, `pROC`, `e1071`, `randomForest`, etc.
 
-## 📄 License (Optional)
-MIT License — see `LICENSE` file for details.
+
+## 📄 License
+This project is licensed under the MIT License — see [LICENSE](LICENSE) for details.
