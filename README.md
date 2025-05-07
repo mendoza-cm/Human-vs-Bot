@@ -35,10 +35,6 @@ While the HTML write-up outlines Support Vector Machines (SVM) and Random Forest
 
 ---
 
-## 📌 Table of Contents (Optional)
-- [Simulating Data](#-simulating-data)
-- [Logistic Regression](#-logistic-regression)
-- [Other Machine Learning Models](#-other-machine-learning-models)
 
 ## 🧪 Requirements (Optional)
 - R (≥ 4.0)
