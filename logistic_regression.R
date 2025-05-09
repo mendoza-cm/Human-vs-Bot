@@ -5,6 +5,7 @@ library(splines)
 ### If you simulate your own data - do not uncomment; otherwise:
 #### replace directory/where/Data/is/saved/ with the loaction of the data downloaded
 #load("directory/where/Data/is/saved/human_vs_bot_data.RData")
+#ls()
 
 
 # fit data using logistic regression
