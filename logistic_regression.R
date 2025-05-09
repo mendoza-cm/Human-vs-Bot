@@ -1,6 +1,12 @@
 library(pROC)
 library(splines)
 
+
+### If you simulate your own data - do not uncomment; otherwise:
+#### replace directory/where/Data/is/saved/ with the loaction of the data downloaded
+#load("directory/where/Data/is/saved/human_vs_bot_data.RData")
+
+
 # fit data using logistic regression
 myfit <- glm(isBot ~ rate, data = training_data, family = "binomial")
 summary(myfit)
