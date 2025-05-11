@@ -68,3 +68,36 @@ g <- ggplot(smoothed, aes(x = x, y = y)) +
 windows()
 print(g)
 
+## will need to reference your own directory
+source("~/myGit_R/Code/bot_vs_human/helperFunctions_decisionTable.R")
+
+predValues <- predictive_values_function(dat = test_data, cuts = seq(0,1,0.1), class = "isBot", scores = "predicted_probabilities")
+ROC_values <- ROC_values_function(test_data,seq(0,1,0.1),class = "isBot",scores = "predicted_probabilities")
+
+
+gt_table <- merge(predValues, ROC_values) %>%
+  gt() %>%
+  tab_header(title = "Decision Table") %>%
+  cols_label(
+    cut_point = "Cut Point",
+    PPV = "PPV",
+    NPV = "NPV",
+    selection_ratio = "Selection Ratio",
+    TPR = "TPR",
+    FPR = "FPR",
+    accuracy = "Accuracy"
+  ) %>%
+tab_style(
+    style = cell_text(color = "blue"),
+    locations = cells_body(columns = c("cut_point", "selection_ratio", "accuracy"))
+  ) %>%
+  tab_style(
+    style = cell_text(color = "hotpink"),
+    locations = cells_body(columns = c("PPV", "NPV"))
+  ) %>%
+  tab_style(
+    style = cell_text(color = "darkorange"),
+    locations = cells_body(columns = c("TPR", "FPR"))
+  )
+
+
