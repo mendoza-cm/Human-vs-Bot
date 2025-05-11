@@ -15,9 +15,9 @@ Each linked HTML page provides a full explanation of the rationale, methods, and
 
 ## 📊 Simulating Data
 
-There are two R scripts related to data simulation:
+There are several R scripts related to data simulation:
 - `helperFunctions_simulatedCases.R` — Utility functions for simulating human/bot behavior.
-- `simulatedData_andPrep.R` — Generates the dataset and prepares it for modeling.
+-  `helperFunctions_decisionTable.R` — Utility functions for creating Decision Table: predictive values and ROC values alongside cutpoints.
 
 ---
 
@@ -38,7 +38,7 @@ While the HTML write-up outlines Support Vector Machines (SVM) and Random Forest
 
 ## 🧪 Requirements (Optional)
 - R (≥ 4.0)
-- `ggplot2`, `dplyr`, `pROC`, `e1071`, `randomForest`, etc.
+- `tidyverse`, `pROC`, `e1071`, `randomForest`, etc.
 
 
 ## 📄 License
