@@ -27,11 +27,17 @@ There are several R scripts related to data simulation:
 
 This script goes beyond model fitting and includes analysis of classification metrics and ROC curves.
 
+The R file title, simulatedData_andPrep, uses the R helper functions to simulate data and prep it for logisitic regression. However, this
+data can also be used for analysis using SVM and RF.
+
+The R code also uses ggplot to compare the click rates for humans and bots. The file logistic_regression creates two models, one using the predictor
+rate and the other model using two predictors, rate and standard deviation for time between clicks for humans and bots.
+
 ---
 
 ## 🤖 Other Machine Learning Models
 
-While the HTML write-up outlines Support Vector Machines (SVM) and Random Forests (RF), the corresponding R code is still under development and will be added soon.
+The R code and a seperate readme file is available in the SVM and RF folder.
 
 ---
 
