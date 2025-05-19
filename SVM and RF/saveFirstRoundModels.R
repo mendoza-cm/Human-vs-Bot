@@ -65,4 +65,4 @@ rf_model = randomForest(factor(isBot) ~ .,
 
 myModels$RF <- rf_model
 
-#save(myModels, file = "~/myGit_R/Data/svm_models.RData")
+#save(myModels, file = "~/myGit_R/Data/svmRF_models.RData")
