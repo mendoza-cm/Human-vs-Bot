@@ -14,10 +14,14 @@ Each linked HTML page provides a full explanation of the rationale, methods, and
 ---
 
 ## 📊 Simulating Data
+This module focuses on classifying simulated human and bot click behavior using logistic regression in R.
 
-There are several R scripts related to data simulation:
-- `helperFunctions_simulatedCases.R` — Utility functions for simulating human/bot behavior.
--  `helperFunctions_decisionTable.R` — Utility functions for creating Decision Table: predictive values and ROC values alongside cutpoints.
+### 📁 Files
+  - simulatedData_andPrep.R
+    Generates synthetic data and prepares it for classification. The simulated dataset is also shared with the SVM and Random Forest models for consistency across methods.
+
+  - logistic_regression.R
+    Builds logistic regression models, evaluates performance, and visualizes results using ggplot2.
 
 ---
 
