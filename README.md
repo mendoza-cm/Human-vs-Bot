@@ -14,10 +14,33 @@ Each linked HTML page provides a full explanation of the rationale, methods, and
 ---
 
 ## 📊 Simulating Data
-This module focuses on classifying simulated human and bot click behavior using logistic regression in R.
+This module focuses on simulating test data to perform analyis on in R and Python; this project will be expanded to include SQL.
 ### 📁 Files
-  - helperFunctions_simulateCases
+  - helperFunctions_simulateCases — Contains all helper functions used to generate synthetic click data for both human and bot users.
+    
 ### 🧠 Overview
+This project was sparked by an unexpected failure: I was unable to scrape a website using standard R tools. That led me to consider the 
+problem from another angle: how do we distinguish bot behavior from human behavior?
+
+In our current digital environment, one possible differentiator is timing. Specifically, if bots and humans follow different time distributions 
+between clicks, could that be used as a basis for classification?
+
+The main goal of this module is to simulate realistic user session data, where each session consists of multiple clicks, each with a timestamp. The output includes:
+- a unique \emph{id} per user
+
+- human_startTimes
+- human_timesDistributionDF
+
+- - bot_startTimes
+- bot_timesDistributionDF
+
+The startTimes functions are used to create a data frame of persons with a unique id and a session id in the event that they experieinced more than one session.
+
+
+
+
+
+  
 ---
 
 ## 🔍 Logistic Regression
