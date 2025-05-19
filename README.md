@@ -26,12 +26,12 @@ In our current digital environment, one possible differentiator is timing. Speci
 between clicks, could that be used as a basis for classification?
 
 The main goal of this module is to simulate realistic user session data, where each session consists of multiple clicks, each with a timestamp. The output includes:
-- a unique \emph{id} per user
+- a unique `id` per user
 
 - human_startTimes
 - human_timesDistributionDF
 
-- - bot_startTimes
+- bot_startTimes
 - bot_timesDistributionDF
 
 The startTimes functions are used to create a data frame of persons with a unique id and a session id in the event that they experieinced more than one session.
