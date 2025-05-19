@@ -116,3 +116,4 @@ tbl_html <- kable(
     bootstrap_options = c("striped", "hover", "condensed"),
     full_width = FALSE
   )
+#save_kable(tbl_html, "~/myGit_R/Visualizations/classifier_comparison.png", zoom = 2)
