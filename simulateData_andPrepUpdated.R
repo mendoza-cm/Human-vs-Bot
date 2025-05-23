@@ -81,7 +81,7 @@ png("./visualizations/response_rate_histograms.png", width = 800, height = 1000)
 grid.arrange(p1, p2, ncol = 1)  # Stacked
 dev.off()
 #################
-
+################# 5/23/2025 documentation: updated data was save file:
 ### read in saved data and change "click" to response
 #rm(list=ls())
 #load("./data/human_vs_bot_data.RData")
@@ -104,20 +104,20 @@ dev.off()
 
 
 ### read in saved data and change "click" to response
-rm(list=ls())
-load("./data/simulated_data_all.RData")
-for(s in ls()){
-    obj <- get(s)
+#rm(list=ls())
+#load("./data/simulated_data_all.RData")
+#for(s in ls()){
+#    obj <- get(s)
 
-    if(is.data.frame(obj)){
-       colnames(obj) <- gsub("click","response",colnames(obj))
-        assign(s,obj)
-   }
-}
-for(s in setdiff(ls(),c("s","obj"))){
-    obj <- get(s)
-    print(names(obj))
-}
+#    if(is.data.frame(obj)){
+#       colnames(obj) <- gsub("click","response",colnames(obj))
+#        assign(s,obj)
+#   }
+#}
+#for(s in setdiff(ls(),c("s","obj"))){
+#    obj <- get(s)
+#    print(names(obj))
+#}
 
 ###to_save <- setdiff(ls(),c("s","obj"))
 ###save(list = to_save, file = "./data/simulated_data_allUpdated.RData")
