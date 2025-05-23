@@ -23,6 +23,9 @@ This module focuses on simulating test data to perform analyis on in R and Pytho
 
 ### 📁 Files
   - helperFunctions_simulateCases — Contains all helper functions used to generate synthetic response data for both human and bot users.
+  - simulatedData_andPrep — creates training and test data management
+
+If human 
     
 ### 🧠 Overview
 This project was sparked by an unexpected failure: I was unable to scrape a website using standard R tools. That led me to consider the 
@@ -45,8 +48,9 @@ Data generation is handled by four core functions:
 - bot_startTimes
 - bot_timesDistributionDF
 
-TThe *_startTimes() functions generate user/session combinations, while the *_timesDistributionDF() functions create response-timestamp data based on human-like or bot-like timing patterns.
+The *_startTimes() functions generate user/session combinations, while the *_timesDistributionDF() functions create response-timestamp data based on human-like or bot-like timing patterns.
 
+Thus
 
 
 
