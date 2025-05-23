@@ -7,8 +7,8 @@ library(webshot2)
 library(plyr)
 
 # load saved data
-#load("~/myGit_R/Data/svm_models.RData")
-#load("~/myGit_R/Data/bot_vs_human/human_vs_bot_data.RData")
+load("~/myGit_R/Data/svmRF_models.RData")
+load("~/myGit_R/Data/bot_vs_human/human_vs_bot_data.RData")
 
 
 ## this file assumes data that will be used for training the models is called training_data & test_data
