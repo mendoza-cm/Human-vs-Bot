@@ -1,12 +1,12 @@
 # Human-vs-Bot
 
-Welcome! This repository explores the classification of human vs. bot click behavior using simulated data and machine learning models.
+Welcome! This repository explores the classification of human vs. bot response behavior using simulated data and machine learning models.
 We begin with feature engineering, apply classification models, and evaluate performance using a variety of metrics and visualizations in both R and Python.
 
 ## Overview
 
 This project includes:
-- Simulated click behavior data
+- Simulated response behavior data
 - A logistic regression model
 - Other machine learning models (in progress)
 
@@ -18,19 +18,19 @@ Each linked HTML page provides a full explanation of the rationale, methods, and
 This module focuses on simulating test data to perform analyis on in R and Python; this project will be expanded to include SQL.
 
 ### 📁 Files
-  - helperFunctions_simulateCases — Contains all helper functions used to generate synthetic click data for both human and bot users.
+  - helperFunctions_simulateCases — Contains all helper functions used to generate synthetic response data for both human and bot users.
     
 ### 🧠 Overview
 This project was sparked by an unexpected failure: I was unable to scrape a website using standard R tools. That led me to consider the 
 problem from another angle: how do we distinguish bot behavior from human behavior?
 
 In our current digital environment, one possible differentiator is timing. Specifically, if bots and humans follow different time distributions 
-between clicks, could that be used as a basis for classification?
+between responses, could that be used as a basis for classification?
 
-The main goal of this module is to simulate realistic user session data, where each session consists of multiple clicks, each with a timestamp. The output includes:
+The main goal of this module is to simulate realistic user session data, where each session consists of multiple responses, each with a timestamp. The output includes:
 - a unique `id` per user
 - a `sessioin_id` for mulitple-session users
-- timestamps from the first to the last click in each session
+- timestamps from the first to the last response in each session
 
 Users can also specify whether duplicate IDs are allowed, enabling more complex simulation scenarios.
 Data generation is handled by four core functions:
@@ -41,7 +41,7 @@ Data generation is handled by four core functions:
 - bot_startTimes
 - bot_timesDistributionDF
 
-TThe *_startTimes() functions generate user/session combinations, while the *_timesDistributionDF() functions create click-timestamp data based on human-like or bot-like timing patterns.
+TThe *_startTimes() functions generate user/session combinations, while the *_timesDistributionDF() functions create response-timestamp data based on human-like or bot-like timing patterns.
 
 
 
