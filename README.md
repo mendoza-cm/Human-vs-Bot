@@ -12,6 +12,10 @@ This project includes:
 
 Each linked HTML page provides a full explanation of the rationale, methods, and results behind the associated R scripts. Below is a brief overview of the current R code.
 
+## Recent Updates
+
+- **May 2025**: Renamed all columns containing "click" to use "response" instead, to more accurately reflect behavior data and reduce ambiguity. Updated relevant code and datasets accordingly.
+
 ---
 
 ## 📊 Simulating Data
