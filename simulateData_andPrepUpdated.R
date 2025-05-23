@@ -3,7 +3,7 @@ library(tidyverse)
 library(gridExtra)
 
 # Assuming helper functions are in this directory
-source("./helperFunctions_simulateCases.R")
+source("./helperFunctions_simulateCasesUpdated.R")
 humanInitialize <- human_startTimes(cases = 400) %>%
 			human_timesdistributionDF() %>%
 			data.frame() %>%
