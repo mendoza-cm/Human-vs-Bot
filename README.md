@@ -8,7 +8,7 @@ We begin with feature engineering, apply classification models, and evaluate per
 This project includes:
 - Simulated response behavior data
 - A logistic regression model
-- Other machine learning models (in progress)
+- Other machine learning models 
 
 Each linked HTML page provides a full explanation of the rationale, methods, and results behind the associated R scripts. Below is a brief overview of the current R code.
 
