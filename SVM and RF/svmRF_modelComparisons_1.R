@@ -8,7 +8,7 @@ library(plyr)
 
 # load saved data
 load("~/myGit_R/Data/svmRF_models.RData")
-load("~/myGit_R/Data/bot_vs_human/human_vs_bot_data.RData")
+load("~/myGit_R/Data/bot_vs_human/human_vs_bot_dataUpdated.RData")
 
 
 ## this file assumes data that will be used for training the models is called training_data & test_data
@@ -17,7 +17,7 @@ load("~/myGit_R/Data/bot_vs_human/human_vs_bot_data.RData")
 myTraining_dat <- dplyr::mutate_at(training_data, 
 			.vars = vars(isBot), ~ as.factor(.)) %>%
 		dplyr::select(rate,
-				  sd_inter_click,
+				  sd_inter_response,
 				  isBot)
 
 
@@ -93,10 +93,10 @@ myClassTesting_OOB[nrow(myClassTesting_OOB),ncol(myClassTesting_OOB)] <- round(a
 myTraining_dat2 <- dplyr::mutate_at(training_data, 
 			.vars = vars(isBot), ~ as.factor(.)) %>%
 		dplyr::select(rate,
-				  sd_inter_click,
+				  sd_inter_response,
 				  duration,
-				  mean_inter_click,
-				  clicks_per_session,
+				  mean_inter_response,
+				  responses_per_session,
 				  isBot)
 
 
@@ -131,7 +131,7 @@ svm_allPred_poly3 <- svm(isBot ~ .,
 
 
 ### data does not need to be standardized for random forests
-rf_model2 = randomForest(factor(isBot) ~ rate + sd_inter_click, 
+rf_model2 = randomForest(factor(isBot) ~ rate + sd_inter_response, 
 		data = myTraining_dat2, 
 		type = c("class","prob"))
 
