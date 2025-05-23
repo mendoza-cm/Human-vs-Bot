@@ -4,7 +4,7 @@ library(e1071)
 library(tidyverse)
 library(pROC)
 library(webshot2)
-load("~/myGit_R/Data/bot_vs_human/human_vs_bot_data.RData") # will need training_data
+load("~/myGit_R/Data/bot_vs_human/human_vs_bot_dataUpdated.RData") # will need training_data
 load("~/myGit_R/Data/svmRF_models_comparison.RData") ## new models saved insvmRF_modelComparisons_1.R
 load("~/myGit_R/Data/testData_ml_class_1.RData") # test_data with saved scores form first round of ML predictions
 
