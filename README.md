@@ -25,8 +25,7 @@ This module focuses on simulating test data to perform analyis on in R and Pytho
   - helperFunctions_simulateCases — Contains all helper functions used to generate synthetic response data for both human and bot users.
   - simulatedData_andPrep — creates training and test data management
 
-If multiple versions of a file exist (e.g., one with "Updated" in the name), the version labeled "Updated" is the recommended one. Older versions may not reflect recent changes, such as column name updates (e.g., changing "click" to "response"), and may not be compatible with the latest code.
-    
+  
 ### 🧠 Overview
 This project was sparked by an unexpected failure: I was unable to scrape a website using standard R tools. That led me to consider the 
 problem from another angle: how do we distinguish bot behavior from human behavior?
