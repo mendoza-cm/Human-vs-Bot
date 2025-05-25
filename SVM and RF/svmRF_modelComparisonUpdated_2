@@ -1,23 +1,26 @@
 rm(list=ls())
 library(car)
 library(e1071)
+library(kableExtra)
 library(tidyverse)
 library(pROC)
 library(webshot2)
-load("~/myGit_R/Data/bot_vs_human/human_vs_dataUpdated.RData") # will need training_data
-load("~/myGit_R/Data/svmRF_models_comparisonUpdated.RData") ## new models saved insvmRF_modelComparisons_1.R
-load("~/myGit_R/Data/testData_ml_class_1.RData") # test_data with saved scores form first round of ML predictions
+library(randomForest)
+library(plyr)
+load("./data/human_vs_dataUpdated.RData") # will need training_data
+load("./SVM and RF/svmRF_models_comparisonUpdated.RData") ## new models saved insvmRF_modelComparisons_1.R
+load("./data/testData_ml_class_1Updated.RData") # test_data with saved scores form first round of ML predictions
 
 
 
 
 #### classify test data
-testData_ML <- test_data_ML1 %>%
-				dplyr::mutate(svm_2Linear_pred = predict(myModelsRound2$svm$linear,.),
-				 svm_2RFB_pred = predict(myModelsRound2$svm$rfb,.),
-				 svm_2Poly2_pred = predict(myModelsRound2$svm$poly2,.),
-				 svm_2Poly3_pred = predict(myModelsRound2$svm$poly3,.),
-				 rf_2_pred = predict(myModelsRound2$RF,.)
+testData_ML <- test_data_ML1Updated %>%
+				dplyr::mutate(svm_2Linear_pred = predict(myModelsRound2Updated$svm$linear,.),
+				 svm_2RFB_pred = predict(myModelsRound2Updated$svm$rfb,.),
+				 svm_2Poly2_pred = predict(myModelsRound2Updated$svm$poly2,.),
+				 svm_2Poly3_pred = predict(myModelsRound2Updated$svm$poly3,.),
+				 rf_2_pred = predict(myModelsRound2Updated$RF,.)
 				) %>%
 		dplyr::mutate_at(.vars = vars(svm_2Linear_pred,
 							svm_2RFB_pred,
@@ -25,11 +28,11 @@ testData_ML <- test_data_ML1 %>%
 							svm_2Poly3_pred,
 							rf_2_pred), ~
 							as.logical(.)) %>%
-		dplyr::mutate(svm_2Linear_predProb = attr(predict(myModelsRound2$svm$linear,., probability = TRUE),"probabilities")[,"TRUE"],
-				 svm_2RFB_predProb = attr(predict(myModelsRound2$svm$rfb,., probability = TRUE),"probabilities")[,"TRUE"],
-				 svm_2Poly2_predProb = attr(predict(myModelsRound2$svm$poly2,., probability = TRUE),"probabilities")[,"TRUE"],
-				 svm_2Poly3_predProb = attr(predict(myModelsRound2$svm$poly3,., probability = TRUE),"probabilities")[,"TRUE"],
-				 rf_2_predProb = predict(myModelsRound2$RF,., type = "prob")[,"TRUE"]
+		dplyr::mutate(svm_2Linear_predProb = attr(predict(myModelsRound2Updated$svm$linear,., probability = TRUE),"probabilities")[,"TRUE"],
+				 svm_2RFB_predProb = attr(predict(myModelsRound2Updated$svm$rfb,., probability = TRUE),"probabilities")[,"TRUE"],
+				 svm_2Poly2_predProb = attr(predict(myModelsRound2Updated$svm$poly2,., probability = TRUE),"probabilities")[,"TRUE"],
+				 svm_2Poly3_predProb = attr(predict(myModelsRound2Updated$svm$poly3,., probability = TRUE),"probabilities")[,"TRUE"],
+				 rf_2_predProb = predict(myModelsRound2Updated$RF,., type = "prob")[,"TRUE"]
 				) 
 
 
@@ -60,16 +63,16 @@ for(predName in my_ML_predNames_svm2){
 
 	}
 
-oob_accuracy2 <- 1 - myModelsRound2$RF$err.rate[nrow(myModelsRound2$RF$err.rate), "OOB"]
-oob_pred2 <- predict(myModelsRound2$RF)  # by default uses OOB votes if no newdata is given
+oob_accuracy2 <- 1 - myModelsRound2Updated$RF$err.rate[nrow(myModelsRound2Updated$RF$err.rate), "OOB"]
+oob_pred2 <- predict(myModelsRound2Updated$RF)  # by default uses OOB votes if no newdata is given
 oob_accuracy2 <- mean(oob_pred2 == training_data$isBot)
 
 
-oob_probs_2Preds <- predict(myModelsRound2$RF, type = "prob")[, "TRUE"]
+oob_probs_2Preds <- predict(myModelsRound2Updated$RF, type = "prob")[, "TRUE"]
 roc_oob2 <- roc(response = training_data$isBot, predictor = oob_probs_2Preds)
 auc_oob2 <- auc(roc_oob2)
-RF_OOB_TP2 <- myModelsRound2$RF$confusion[[1]]
-RF_OOB_TN2 <- myModelsRound2$RF$confusion[[4]]
+RF_OOB_TP2 <- myModelsRound2Updated$RF$confusion[[1]]
+RF_OOB_TN2 <- myModelsRound2Updated$RF$confusion[[4]]
 
 
 myClassTesting2_OOB <- rbind.fill(myClassTesting2,data.frame(classifier = "RF_OOB",
@@ -83,8 +86,8 @@ myClassTesting2_OOB[nrow(myClassTesting2_OOB),ncol(myClassTesting2_OOB)] <- roun
 ### switch the RF models: place with othr models using same number of vars for training
 ### usually would never check RF with less vars - throw everything into ensemble methods
 
-rf_allPred <- myClassTesting_OOB[5:6,]
-myClassTesting_OOB[5:6,] <- myClassTesting2_OOB[5:6,]
+rf_allPred <- myClassTesting_OOBUpdated[5:6,]
+myClassTesting_OOBUpdated[5:6,] <- myClassTesting2_OOB[5:6,]
 myClassTesting2_OOB[5:6,] <- rf_allPred
 
 #rfPRedictions <-predict(rf_model2,test_data, type = "prob")
@@ -93,9 +96,9 @@ myClassTesting2_OOB[5:6,] <- rf_allPred
 myClassifierTable <- cbind(data.frame(ClassifierType = 
 					c("SVM: Linear Model","SVM: Radial Model","SVM: Polynomial Degree 2",
 						"SVM: Polynomial Degree 3","RF Model","RF OOB")),
-					cbind(myClassTesting_OOB[,2:5],myClassTesting2_OOB[,2:5]))
+					cbind(myClassTesting_OOBUpdated[,2:5],myClassTesting2_OOB[,2:5]))
 
-library(kableExtra)
+
 tbl_html <- kable(
   myClassifierTable,
   col.names = c(
@@ -116,4 +119,4 @@ tbl_html <- kable(
     bootstrap_options = c("striped", "hover", "condensed"),
     full_width = FALSE
   )
-#save_kable(tbl_html, "~/myGit_R/Visualizations/classifier_comparison.png", zoom = 2)
+#save_kable(tbl_html, "./visualizations/classifier_comparisonUpdated.png", zoom = 2)
