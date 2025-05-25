@@ -89,7 +89,7 @@ myClassTesting_OOB[nrow(myClassTesting_OOB),ncol(myClassTesting_OOB)] <- round(a
 
 # source("C:\\Users\\Administrator\\Documents\\myGit_R\\Code\\bot_vs_human\\decisionTable_functions.R")
 
-
+myClassTesting_OOBUpdated<- myClassTesting_OOB
 myTraining_dat2 <- dplyr::mutate_at(training_data, 
 			.vars = vars(isBot), ~ as.factor(.)) %>%
 		dplyr::select(rate,
@@ -144,7 +144,7 @@ myModelsRound2Updated$svm$rfb <- svm_allPred_linear
 myModelsRound2Updated$svm$poly2 <- svm_allPred_linear
 myModelsRound2Updated$svm$poly3 <- svm_allPred_linear
 myModelsRound2Updated$RF <- rf_model2
-#save(myModelsRound2Updated, file = "~/myGit_R/Data/svmRF_models_comparison.RData")
+#save(myModelsRound2Updated, file = "./data/svmRF_models_comparisonUpdated.RData")
 test_data_ML1Updated <- test_data
-#save(test_data_ML1Updated,myClassTesting_OOBUpdated, file = "~/myGit_R/Data/testData_ml_class_1.RData")
+#save(test_data_ML1Updated,myClassTesting_OOBUpdated, file = "./data/testData_ml_class_1Updated.RData")
 
