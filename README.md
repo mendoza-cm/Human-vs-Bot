@@ -32,19 +32,20 @@ of the current R code.
 ---
 
 ## 📊 Simulating Data
-This module focuses on simulating test data to perform analyis on in R and Python; this project will be expanded to include SQL.
+This module focuses on simulating test data to perform analyis in R and Python; this project will be expanded to include SQL.
 
 ### 📁 Files
   - helperFunctions_simulateCases — Contains all helper functions used to generate synthetic response data for both human and bot users.
-  - simulatedData_andPrep — creates training and test data management
+  - simulatedData_andPrep — creates training and test data frames; encompasses data management
 
   
 ### 🧠 Overview
 This project was sparked by an unexpected failure: I was unable to scrape a website using standard R tools. That led me to consider the 
-problem from another angle: how do we distinguish bot behavior from human behavior?
+problem from another angle: how do we distinguish bot behavior from human behavior? And if I cannot get it from the internet, can I just 
+simulate it.
 
-In our current digital environment, one possible differentiator is timing. Specifically, if bots and humans follow different time distributions 
-between responses, could that be used as a basis for classification?
+In our current digital environment, one possible differentiator is timing. Specifically, if bots and humans follow different time distributions for
+response times; could that be used as a basis for classification?
 
 The main goal of this module is to simulate realistic user session data, where each session consists of multiple responses, each with a timestamp. The output includes:
 - a unique `id` per user
@@ -61,9 +62,11 @@ Data generation is handled by four core functions:
 - bot_timesDistributionDF
 
 The *_startTimes() functions generate user/session combinations, while the *_timesDistributionDF() functions create response-timestamp data based on human-like or bot-like timing patterns.
+The functios distinguish resposne times using the normal distribution for `humans` and an exponential for 'bots.'
 
-Thus
-
+That is, without knowing what characteristics differentiate human and bot behavior on a website, respsonse times were considered and used for model development:
+if different models can classify cases based on a rate variable, the simulated data is representative of two different populations. Whether it does
+portray real life data for humans and bots would need further analysis and real data.
 
 
 
