@@ -9,7 +9,7 @@ We begin with feature engineering, apply classification models, and evaluate per
 This repository is still under construction, but most R and Python code will continue to work if the appropriate data and models are used.
 
 - **May 2025**: Renamed all columns containing `"click"` to `"response"` for clarity. Relevant code and datasets have been updated. Older files
-- may still contain outdated column names and are being phased out.
+  may still contain outdated column names and are being phased out.
 
 **Note:** This project was originally developed using Git and Visual Studio on a laptop that experienced overheating issues when running R, Python, 
 Jupyter Notebook, and Git simultaneously. Development resumed on a backup machine with base R (without RStudio). Current development is occurring 
@@ -24,7 +24,8 @@ This project includes:
 - A logistic regression model
 - Other machine learning models 
 
-Each linked HTML page provides a full explanation of the rationale, methods, and results behind the associated R scripts. Below is a brief overview of the current R code.
+Each linked HTML page provides a full explanation of the rationale, methods, and results behind the associated R scripts. Below is a brief overview 
+of the current R code.
 
 
 
