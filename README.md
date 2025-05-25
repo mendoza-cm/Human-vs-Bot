@@ -3,6 +3,20 @@
 Welcome! This repository explores the classification of human vs. bot response behavior using simulated data and machine learning models.
 We begin with feature engineering, apply classification models, and evaluate performance using a variety of metrics and visualizations in both R and Python.
 
+
+## Recent Updates
+
+This repository is still under construction, but most R and Python code will continue to work if the appropriate data and models are used.
+
+- **May 2025**: Renamed all columns containing `"click"` to `"response"` for clarity. Relevant code and datasets have been updated. Older files
+- may still contain outdated column names and are being phased out.
+
+**Note:** This project was originally developed using Git and Visual Studio on a laptop that experienced overheating issues when running R, Python, 
+Jupyter Notebook, and Git simultaneously. Development resumed on a backup machine with base R (without RStudio). Current development is occurring 
+in Visual Studio with R integration. A few technical issues remain but are being resolved. Thank you for your patience!
+
+
+
 ## Overview
 
 This project includes:
@@ -12,9 +26,7 @@ This project includes:
 
 Each linked HTML page provides a full explanation of the rationale, methods, and results behind the associated R scripts. Below is a brief overview of the current R code.
 
-## Recent Updates
 
-- **May 2025**: Renamed all columns containing "click" to use "response" instead, to more accurately reflect behavior data and reduce ambiguity. Updated relevant code and datasets accordingly.
 
 ---
 
