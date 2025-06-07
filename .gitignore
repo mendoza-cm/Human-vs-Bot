@@ -1,0 +1,12 @@
+## standard
+__pycach__/
+*.pyc
+## my virtual env
+venv/
+
+
+## Jupyter notebooks are a no go
+.ipynb_checkpoints/
+
+## my vs code settings - optional
+.vscode/
